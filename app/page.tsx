@@ -1,65 +1,88 @@
+import { PhoneContactForm } from "@/components/Contact";
+import Project from "@/components/projectCard";
+import { PROJECTS } from "@/data/projects";
+import { ChevronsDown, Icon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="min-h-screen w-full flex flex-col items-center justify-center mt-8 p-2 gap-[48px] ">
+      <div className="w-full max-w-[800px] flex flex-col items-center justify-center">
+        <div className="text-center mb-16">
+          <h1 className="text-[28px] md:text-[36px] lg:text-[48px] font-semibold mb-6">
+            <span>Hi! I am </span>
+            <span className="text-orange-600">Tanmay</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="text-[16px] md:font-semibold  md:text-[18px] max-w-[700px] mx-auto mb-8">
+            Frontend-focused software engineer with 6+ years crafting
+            responsive, intuitive, and scalable interfaces across telematics,
+            healthcare IT, and enterprise research platforms.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+          <Link
+            className="text-blue-400 text-[16px] hover:text-blue-300 transition"
+            href="/about"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+            More about me
+          </Link>
+        </div>
+
+        <div className="border-none relative flex items-center justify-center">
+          <Image
+            src="/avatar.png"
+            alt="Picture of the author"
+            width={300}
+            height={300}
+            className="relative z-10"
+          />
+        </div>
+
+        <div className="scroll-container">
+          <div className="arrow text-orange-400 text-4xl">
+            <ChevronsDown />
+          </div>
+        </div>
+      </div>
+
+      <section className="w-full">
+        <center>
+          <h1 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900 dark:text-white">
+            Projects
+          </h1>
+        </center>
+        <div
+          id="projects"
+          className="flex flex-col flex-wrap md:flex-row w-full justify-evenly content-center gap-8"
+        >
+          {PROJECTS.map(({ id, title, imageSrc, description, link }) => (
+            <Project
+              key={id}
+              title={title}
+              imageSrc={imageSrc}
+              description={description}
+              link={link}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* <section className="w-full">
+        <h1 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900 dark:text-white">
+          In their words
+        </h1>
+
+        <div
+          id="testimonials"
+          className="flex flex-col flex-wrap md:flex-row w-full justify-evenly content-center gap-8"
+        >
+          <i>Coming soon...</i>
+        </div>
+      </section> */}
+      <section className="w-full">
+        <PhoneContactForm />
+      </section>
+    </main>
   );
 }
