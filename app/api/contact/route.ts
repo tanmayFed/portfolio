@@ -16,10 +16,10 @@ export async function POST(request: NextRequest) {
     const { name, email, message } = contactSchema.parse(body);
 
     const { data, error } = await resend.emails.send({
-      from: email,
+      from: "My App <onboarding@resend.dev>",
       to: ["tanmaypach15@gmail.com"],
       subject: "Portfolio message",
-      react: EmailTemplate({ name, message }),
+      react: EmailTemplate({ name, email, message }),
     });
 
     if (error) {
