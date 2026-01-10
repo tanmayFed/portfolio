@@ -41,7 +41,7 @@ const SkillCard = () => {
   ];
   return (
     <div className="w-full">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-12">
         {skills.map((skill) => (
           <div
             key={skill.name}

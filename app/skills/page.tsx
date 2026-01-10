@@ -7,7 +7,7 @@ import Image from "next/image";
 const Skills = () => {
   return (
     <section className="py-16 px-6 flex flex-col gap-[48px] w-full">
-      <div className="max-w-4xl justify-items-start">
+      <div className="w-full justify-items-start">
         <h1 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900 dark:text-white">
           Skills
         </h1>
